@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "uyVcRIU-F2koTAmkcON1V"
+uri = "file://exports/the-hidden-table.zip"
+type = "unspecified"
+title = "The Hidden Table — source (dengan animasi kocok & pilih kartu baru)"

@@ -61,7 +61,12 @@ function writeSettings(settings: Settings): void {
   } catch {
     // The app can continue with in-memory settings when storage is unavailable.
   }
-  window.dispatchEvent(new CustomEvent<Settings>(SETTINGS_EVENT, { detail: settings }));
+  // Defer to a microtask so other useSettings() consumers (e.g. AmbientBackground)
+  // don't get setState-during-render warnings when this fires while the caller
+  // (e.g. SettingsPage) is still in its own render/update cycle.
+  queueMicrotask(() => {
+    window.dispatchEvent(new CustomEvent<Settings>(SETTINGS_EVENT, { detail: settings }));
+  });
 }
 
 export function useSettings() {
@@ -96,7 +101,9 @@ export function useSettings() {
     setSettings(defaultSettings);
     if (typeof window !== 'undefined') {
       try { window.localStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
-      window.dispatchEvent(new CustomEvent<Settings>(SETTINGS_EVENT, { detail: defaultSettings }));
+      queueMicrotask(() => {
+        window.dispatchEvent(new CustomEvent<Settings>(SETTINGS_EVENT, { detail: defaultSettings }));
+      });
     }
   }, []);
 

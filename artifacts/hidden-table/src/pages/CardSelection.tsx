@@ -101,6 +101,7 @@ export function CardSelection() {
               requiredCount={requiredCount}
               selectedIndices={selectedIndices}
               disabled={!shuffled}
+              positionLabels={session.spread?.positions.map((p) => p.name)}
             />
           ) : (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="flex flex-col items-center">
