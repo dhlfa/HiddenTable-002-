@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "The Hidden Table"
+version = "1.0.0"
+id = "artifacts/hidden-table"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18459
+
+[services.development]
+run = "pnpm --filter @workspace/hidden-table run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/hidden-table", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/hidden-table/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18459"
+BASE_PATH = "/"

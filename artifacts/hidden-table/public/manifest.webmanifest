@@ -1,0 +1,19 @@
+{
+  "name": "The Hidden Table",
+  "short_name": "Hidden Table",
+  "description": "Pengalaman pembacaan tarot reflektif dengan 22 Major Arcana — untuk refleksi diri, bukan ramalan pasti.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#05070D",
+  "theme_color": "#05070D",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

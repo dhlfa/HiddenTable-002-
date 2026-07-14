@@ -1,0 +1,3 @@
+- [Tailwind v3 config bridge in v4 scaffold](tailwind-v3-config-bridge.md) — porting an app with its own tailwind.config.js into a Tailwind v4 scaffold: load it via `@config` in index.css instead of rewriting to `@theme`.
+- [External API payload strings must not be translated](external-api-payload-i18n.md) — don't localize enum/name strings that are sent verbatim to an external API or already stored in local data; only translate UI chrome.
+- [localStorage-prefix full-dump backup pattern](localstorage-backup-pattern.md) — app data export/import approach for apps with no backend DB: dump/restore all keys under one prefix as a single JSON file.
